@@ -4,15 +4,12 @@ typedef long long ll;
 void solve() {
     ll n;
     cin>>n;
-    ll res = n;
+    ll res = 0;
     for(ll i=0;i<n;i++){
         ll x;
         cin>>x;
-        if(x==i+1){
-            continue;
-        }
         ll diff = abs(x-i-1);
-        res = min(res, diff);
+        res = __gcd(res,diff);
     }
     cout<<res<<endl;
 }
