@@ -6,20 +6,14 @@ typedef long long ll;
 void solve() {
     int n;
     cin>>n;
-    int a = n-1;
-    int b = 1;
-    int resa = a;
-    int resb = b;
-    ll res = (1LL*a*b)/(__gcd(a,b));
-    while(b<=n/2){
-        ll lcm = ((1LL*a*b)/(__gcd(a,b)));
-        if(res>lcm){
-            resa = a;
-            resb = b;
-            res = lcm;
+    ll resa = 1;
+    ll resb = n-1;
+    for(ll fac=2;fac*fac<=n;fac++){
+        if(n%fac==0){
+            resa = n/fac;
+            resb = n-resa;
+            break;
         }
-        a--;
-        b++;
     }
     cout<<resa<<" "<<resb<<endl;
 }
